@@ -51,6 +51,9 @@ body{background:radial-gradient(ellipse at 78% 12%,rgba(27,91,55,.16),transparen
 .btn:hover{border-color:#609773;background:#183322}
 .nav-item span{color:#83a48d}
 @media(max-width:850px){
+ #navigation .nav-item span{display:flex}
+ #navigation .nav-item .nav-number{display:grid}
+ #navigation .nav-item .nav-copy{display:grid}
  .sidebar{padding:12px;border-right:0;border-bottom-color:#23412e}
  .sidebar-brand{display:none}
  .season-panel{display:none}
