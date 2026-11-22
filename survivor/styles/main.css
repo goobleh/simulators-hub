@@ -215,3 +215,13 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
  .player-preview{gap:7px;flex-wrap:wrap}
  .player-title{flex:1 1 100%;margin-left:0}
 }
+
+
+/* Keep the image URL control directly below the castaway text */
+.player-preview{align-items:center;flex-wrap:nowrap}
+.player-title{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;flex:1;min-width:0;margin:0}
+.player-image-url{margin-top:2px}
+@media(max-width:600px){
+ .player-preview{flex-wrap:nowrap}
+ .player-title{flex:1 1 auto;margin:0}
+}
