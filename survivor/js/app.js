@@ -70,6 +70,11 @@ document.addEventListener("change",e=>{
  if(el.dataset.alliance!==undefined){state.alliances[+el.dataset.alliance][el.dataset.key]=el.value;save();return}
  if(el.dataset.strengthAlliance!==undefined){const a=el.dataset.strengthAlliance==="draft"?(state.allianceDraft||(state.allianceDraft={name:"",members:[],strengths:{}})):state.alliances[+el.dataset.strengthAlliance];a.strengths=a.strengths||{};a.strengths[el.dataset.playerId]=el.value;save();return}
 });
-document.addEventListener("input",e=>{const el=e.target;if(el.dataset.rangeSetting){const out=document.getElementById("value-"+el.dataset.rangeSetting);if(out)out.textContent=el.value}if(el.dataset.statPlayer!==undefined){const out=document.getElementById("stat-value-"+el.dataset.statPlayer+"-"+el.dataset.statIndex);if(out)out.textContent=el.value}});
+document.addEventListener("input",e=>{const el=e.target;
+ if(el.dataset.rangeSetting){const out=document.getElementById("value-"+el.dataset.rangeSetting);if(out)out.textContent=el.value}
+ if(el.dataset.statPlayer!==undefined){const out=document.getElementById("stat-value-"+el.dataset.statPlayer+"-"+el.dataset.statIndex);if(out)out.textContent=el.value}
+ if(el.dataset.teamColour!==undefined){const i=+el.dataset.teamColour,t=state.teams[i],part=el.dataset.colourPart;t[part]=el.value;const hex=document.querySelector('[data-team-hex="'+i+'"][data-colour-part="'+part+'"]');if(hex)hex.value=el.value;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save()}
+ if(el.dataset.teamHex!==undefined&&/^#[0-9a-fA-F]{6}$/.test(el.value)){const i=+el.dataset.teamHex,t=state.teams[i],part=el.dataset.colourPart;t[part]=el.value;const picker=document.querySelector('[data-team-colour="'+i+'"][data-colour-part="'+part+'"]');if(picker)picker.value=el.value;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save()}
+});
 function init(){ensureData();state.cast.forEach(p=>{if(!p.archetype){p.archetype="The Balanced";p.class="All-rounder";p.stats=[5,5,5,5,5,5,5]}});if(!state.cast.some(p=>p.team))randomizeTeams(state);render()}
 init();
