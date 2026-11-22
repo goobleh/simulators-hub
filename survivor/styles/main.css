@@ -20,8 +20,7 @@ body{background:radial-gradient(ellipse 72% 48% at 50% 0%,rgba(37,91,51,.48) 0%,
 
 /* Season builder layout polish */
 :root{--accent:#78b889}
-body{background:#050706;background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%,rgba(20,48,28,.45) 48%,rgba(5,7,6,.12) 100%);background-repeat:no-repeat}
+body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%,rgba(20,48,28,.45) 48%,rgba(5,7,6,.12) 100%),#050706;background-repeat:no-repeat;background-attachment:fixed}
 .topbar{background:rgba(5,8,6,.94);backdrop-filter:blur(12px)}
 .main-content{position:relative}
 .page-heading{align-items:center}
