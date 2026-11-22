@@ -21,8 +21,15 @@ export function runChallenge(s){
  {name:"Memory Lane",description:"Castaways study a sequence of symbols, then recreate it accurately under pressure.",w:[0,.05,.35,.1,0,0,.5]},
  {name:"All Hands on Deck",description:"The tribe navigates a balance course while keeping everyone in sync.",w:[.15,.3,.1,.4,0,0,.05]},
  {name:"The Final Lock",description:"A physical relay ends with a complicated combination puzzle. Every stage matters.",w:[.25,.15,.35,.05,0,0,.2]}];
- const c=pick(types),scores=activeTribes(g).map(t=>{const ps=playersOnTribe(g,t.id),avg=c.w.reduce((n,w,i)=>n+w*ps.reduce((a,p)=>a+(+p.stats[i]||5),0)/Math.max(1,ps.length),0),bond=ps.length>1?ps.reduce((n,p)=>n+ps.reduce((a,q)=>a+(p.id===q.id?0:rel(s,p,q)),0),0)/(ps.length*(ps.length-1)):0;return {tribeId:t.id,score:avg*(1+bond*.018)*(.72+Math.random()*.56)}}).sort((a,b)=>b.score-a.score);
- g.challenge={name:c.name,description:c.description,winner:scores[0].tribeId,results:scores};g.losers=scores.slice(1).map(x=>x.tribeId);g.stage="immunity";g.history.push({episode:g.episode,type:"Immunity",winner:g.challenge.winner});
+ const c=pick(types);
+ if(g.merged){
+  const scores=g.cast.filter(alive).map(p=>({playerId:p.id,score:c.w.reduce((n,w,i)=>n+w*(+p.stats[i]||5),0)*(.72+Math.random()*.56)})).sort((a,b)=>b.score-a.score);
+  g.challenge={name:c.name,description:c.description,individual:true,winner:scores[0].playerId,results:scores};g.losers=["merge"];
+ }else{
+  const scores=activeTribes(g).map(t=>{const ps=playersOnTribe(g,t.id),avg=c.w.reduce((n,w,i)=>n+w*ps.reduce((a,p)=>a+(+p.stats[i]||5),0)/Math.max(1,ps.length),0),bond=ps.length>1?ps.reduce((n,p)=>n+ps.reduce((a,q)=>a+(p.id===q.id?0:rel(s,p,q)),0),0)/(ps.length*(ps.length-1)):0;return {tribeId:t.id,score:avg*(1+bond*.018)*(.72+Math.random()*.56)}}).sort((a,b)=>b.score-a.score);
+  g.challenge={name:c.name,description:c.description,winner:scores[0].tribeId,results:scores};g.losers=scores.slice(1).map(x=>x.tribeId);
+ }
+ g.stage="immunity";g.history.push({episode:g.episode,type:"Immunity",winner:g.challenge.winner});
 }
 const eventTypes=[
  ["Camp Life","A shelter disagreement","A disagreement over the shelter leaves the tribe a little divided.","rel",-1],
