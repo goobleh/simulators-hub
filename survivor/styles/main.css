@@ -5,36 +5,7 @@
 @media(max-width:700px){.relationship-table th:first-child,.relationship-table td:first-child{width:76px}.relationship-cell{height:26px;font-size:8px}.relationship-table th,.relationship-table td{padding:3px 2px}}
 
 
-/* Subtle green tint only; keep the original minimal layout */
-:root{--accent:#79bd8c}
-body{background:radial-gradient(ellipse at 80% 0%,rgba(34,88,49,.10),transparent 42%),#050805}
-.topbar{background:#070d08;border-bottom-color:#1c2b20}
-.workspace{display:block}
-.navigation-bar{display:flex;align-items:center;gap:24px;padding:12px 34px;border-bottom:1px solid #1b2b20;background:#080e09}
-.navigation-bar .season-mini{flex:0 0 auto;padding:0;color:#75927b;font-size:9px;letter-spacing:1.2px}
-#navigation{display:flex;align-items:center;gap:5px;min-width:0;overflow-x:auto}
-.nav-item{white-space:nowrap;padding:9px 11px;border-radius:2px}
-.nav-item:hover{background:#102017;color:#e9f5eb}
-.nav-item.active{background:#173522;color:#eaffee}
-.nav-item.active span{color:#9bd4a8}
-.main-content{width:min(100%,1100px);padding:42px 56px 80px;margin:0 auto}
-.field input:focus,.field select:focus,.field textarea:focus,.inline-input:focus{border-color:#578b63}
-.field input[type=checkbox]{accent-color:#79bd8c}
-.range-line input[type=range]{accent-color:#79bd8c}
-.btn.primary{background:#79bd8c;color:#07110a;border-color:#79bd8c}
-.btn.primary:hover{background:#91cda1;border-color:#91cda1}
-@media(max-width:850px){
- .navigation-bar{padding:10px 14px;display:block}
- .navigation-bar .season-mini{padding:0 10px 8px}
- #navigation{display:flex;overflow-x:auto}
- .nav-item{flex:0 0 auto;white-space:nowrap}
- .nav-item span{display:inline}
- .main-content{padding:32px 22px 60px}
-}
-@media(max-width:560px){.main-content{padding:28px 16px 50px}}
-
-
-/* Flat green theme. No sidebar or navigation strip. */
+/* Flat green tint */
 :root{--accent:#79bd8c}
 body{background:#102719}
 .topbar{background:#102719;border-bottom-color:#31533a}
