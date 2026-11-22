@@ -1,4 +1,4 @@
-import {state,save,ensureData} from "./state.js";
+import {state,save,ensureData,resetSeason} from "./state.js";
 import {ARCHETYPES,twistDefs,RELATIONSHIPS} from "./data/index.js";
 import {renderSetup} from "./pages/setup.js";
 import {renderTimeline} from "./pages/timeline.js";
@@ -18,6 +18,8 @@ function render(){
  document.getElementById("page-content").innerHTML=pages[page]();
 }
 document.addEventListener("click",e=>{
+ if(e.target.closest("[data-reset-season]")){if(confirm("Reset the entire Survivor season? This clears setup, cast, teams, twists, relationships and alliances.")){resetSeason();randomizeTeams(state);page="setup";render()}return}
+
  const nav=e.target.closest("[data-page]");if(nav){page=nav.dataset.page;render();return}
  const go=e.target.closest("[data-go]");if(go){page=go.dataset.go;render();return}
  const add=e.target.closest("[data-add-twist]");if(add){const i=+add.dataset.addTwist;const sel=document.querySelector(`[data-twist-select="${i}"]`);if(sel.value&&!state.timeline[i].twists.includes(sel.value))state.timeline[i].twists.push(sel.value);render();return}
