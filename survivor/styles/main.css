@@ -140,3 +140,32 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
 .alliance-weakness select{width:100%;padding:6px;background:#080d09;border:1px solid #354438;border-radius:3px;color:#dce8de;font-size:9px}
 .member-strengths{display:none}
 @media(max-width:600px){.team-roster-grid{grid-template-columns:1fr 1fr}.team-contrast-test{height:64px}}
+
+
+/* Concise timeline, cast stats, teams and alliance composer */
+.episode-summary-right{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-width:0}
+.twist-category-labels{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+.twist-category-labels i{font-style:normal;font-size:8px;line-height:1;padding:4px 6px;border-radius:3px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.twist-category-labels .cat-elimination{background:#482923;color:#f0a08e}
+.twist-category-labels .cat-teams{background:#1c344d;color:#a9d1f7}
+.twist-category-labels .cat-immunity{background:#493a19;color:#f0d78c}
+.twist-category-labels .cat-other{background:#292929;color:#ddd}
+.twist-category{border:0;border-radius:0;background:transparent}
+.twist-category h3{padding:0;margin:14px 0 0;background:transparent!important;color:#aab8ac!important;font-size:9px;letter-spacing:.8px}
+.twist-category .twist-picker{padding:7px 0 0}
+.archetype-stats{margin-top:10px;padding-top:9px}
+.stats-heading{font-size:9px;margin-bottom:7px}
+.stat-sliders{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:0}
+.stat-slider{display:grid;grid-template-columns:58px minmax(0,1fr) 16px;align-items:center;gap:6px;padding:5px 6px;border:0;border-radius:3px;background:#0b100d}
+.stat-slider> b{font-size:8px;letter-spacing:0;text-transform:none;color:#b8c3ba}
+.stat-slider input[type=range]{height:4px;margin:0}
+.stat-slider output{font-size:9px;text-align:right}
+.team-contrast-test{justify-content:center;gap:5px}
+.team-contrast-test>span{font-size:14px;overflow-wrap:anywhere}
+.team-contrast-test>small{font-size:9px;letter-spacing:.5px}
+.relationship-cell{font-size:clamp(5px,.68vw,8px);letter-spacing:-.45px;overflow-wrap:anywhere;line-height:1;padding:0 1px}
+.alliance-composer{margin-bottom:12px}
+.alliance-saved-members{display:flex;flex-wrap:wrap;gap:6px}
+.alliance-saved-members>span{display:flex;gap:6px;align-items:center;padding:6px 8px;border:1px solid #2d3b30;border-radius:4px;background:#0c140e;font-size:10px;color:#d3dfd5}
+.alliance-saved-members small{font-size:8px;color:#9bc4a3;text-transform:uppercase}
+@media(max-width:600px){.episode-summary-right{gap:6px}.twist-category-labels{display:none}.stat-sliders{grid-template-columns:1fr}.stat-slider{grid-template-columns:66px minmax(0,1fr) 16px}.relationship-cell{font-size:6px;letter-spacing:-.5px}}
