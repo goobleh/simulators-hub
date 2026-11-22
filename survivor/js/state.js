@@ -5,7 +5,7 @@ export function save(){saveState(state)}
 export function resetSeason(){Object.assign(state,defaultState());ensureData();save();}
 export function ensureData(){
  const n=Number(state.settings.castSize)||18;
- while(state.cast.length<n)state.cast.push({id:crypto.randomUUID(),name:"",nicknameOn:false,nickname:"",image:"",gender:"",archetype:"",class:"",stats:[5,5,5,5,5,5,5],team:""});
+ while(state.cast.length<n)state.cast.push({id:crypto.randomUUID(),name:"",nicknameOn:false,nickname:"",image:"",gender:"",archetype:"The Balanced",class:"All-rounder",stats:[5,5,5,5,5,5,5],team:""});
  if(state.cast.length>n)state.cast=state.cast.slice(0,n);
  const t=Number(state.settings.tribes)||2;
  while(state.teams.length<t+1)state.teams.push({id:"team"+state.teams.length,name:state.teams.length===t?"Merge":"Team "+(state.teams.length+1),label:"",color:["#777777","#a5a5a5","#555555","#888888"][state.teams.length%4]});
