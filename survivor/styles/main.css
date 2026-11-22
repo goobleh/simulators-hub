@@ -98,3 +98,45 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
 @media(max-width:600px){.cast-grid{grid-template-columns:1fr}.setup-card{padding:14px}.alliance-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mini-stat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.episode-summary{padding:13px}.episode-summary>span:first-child{gap:7px}.phase-label{font-size:8px}}
 
 .hex-input{width:100%;background:#080c09;border:1px solid #303d33;color:#dce8de;border-radius:3px;padding:7px 8px;font-size:10px;font-family:monospace}
+
+
+/* Latest season builder refinements */
+.twist-categories{display:grid;gap:12px;padding-top:14px}
+.twist-category{border:1px solid #303030;border-radius:6px;overflow:hidden;background:#0b0d0b}
+.twist-category h3{margin:0;padding:9px 12px;font-size:10px;letter-spacing:1.1px;text-transform:uppercase}
+.twist-category .twist-picker{padding:10px 12px 12px}
+.cat-elimination{border-color:#70433e}.cat-elimination h3{background:#482923;color:#f0a08e}
+.cat-teams{border-color:#3b5d82}.cat-teams h3{background:#1c344d;color:#a9d1f7}
+.cat-immunity{border-color:#74602e}.cat-immunity h3{background:#493a19;color:#f0d78c}
+.cat-other{border-color:#565656}.cat-other h3{background:#292929;color:#ddd}
+.stat-sliders{display:grid;gap:9px;margin-top:12px}
+.stat-slider{display:grid;gap:5px;padding:7px 9px;background:#0b100d;border:1px solid #28322b;border-radius:5px}
+.stat-slider>span{display:flex;justify-content:space-between;align-items:center;font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:#b8c3ba}
+.stat-slider output{font-size:11px;font-weight:700;color:var(--stat-colour)}
+.stat-slider input[type=range]{width:100%;height:5px;margin:3px 0;appearance:none;-webkit-appearance:none;background:linear-gradient(to right,var(--stat-colour) 0%,var(--stat-colour) 100%);accent-color:var(--stat-colour);cursor:pointer}
+.stat-slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--stat-colour);border:2px solid #080b09;box-shadow:0 0 0 1px var(--stat-colour)}
+.stat-slider input[type=range]::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:var(--stat-colour);border:2px solid #080b09;box-shadow:0 0 0 1px var(--stat-colour)}
+.team-contrast-test{height:74px;border-radius:5px;margin-bottom:15px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;font-weight:800;letter-spacing:1px;font-size:13px}
+.team-contrast-test small{font-size:8px;letter-spacing:1.5px;opacity:.8}
+.team-head{margin-bottom:13px}
+.team-icon,.tiny-team-icon{display:none!important}
+.gradient-toggle{margin-top:8px;align-self:center;white-space:nowrap}
+.team-roster{border-top:1px solid #2c382f;margin-top:15px;padding-top:12px}
+.team-roster>strong{font-size:9px;letter-spacing:1.2px;color:#819385}
+.team-roster-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:9px}
+.team-player{display:flex;align-items:center;gap:7px;min-width:0;padding:6px;background:#0d140f;border:1px solid #26342a;border-radius:4px;font-size:10px;color:#cbd6cd}
+.team-player img,.team-player-placeholder{width:30px;height:30px;flex:0 0 30px;object-fit:contain;border-radius:4px;background:#18221a}
+.team-player-placeholder{display:grid;place-items:center;color:#839386}
+.team-player span:last-child{overflow-wrap:anywhere}
+.relationship-table th,.relationship-table td{border:1px solid #59645b!important}
+.relationship-table{border-collapse:separate;border-spacing:0}
+.relationship-cell{outline:1px solid rgba(255,255,255,.16);outline-offset:-1px}
+.relationship-cell:hover{outline:2px solid #fff;outline-offset:-2px}
+.alliance-player-box{min-width:0;border:1px solid #303d33;border-radius:5px;background:#0b110d;padding:5px;display:flex;flex-direction:column;gap:5px}
+.alliance-player-box.selected{border-color:#82bd8e;background:#142219}
+.alliance-player-box .alliance-player{width:100%;border:0;background:transparent;padding:4px}
+.alliance-weakness{display:grid;gap:4px;padding:3px 4px}
+.alliance-weakness span{font-size:8px;color:#91a294;text-transform:uppercase;letter-spacing:.6px}
+.alliance-weakness select{width:100%;padding:6px;background:#080d09;border:1px solid #354438;border-radius:3px;color:#dce8de;font-size:9px}
+.member-strengths{display:none}
+@media(max-width:600px){.team-roster-grid{grid-template-columns:1fr 1fr}.team-contrast-test{height:64px}}
