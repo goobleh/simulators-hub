@@ -225,3 +225,43 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
  .player-preview{flex-wrap:nowrap}
  .player-title{flex:1 1 auto;margin:0}
 }
+
+
+/* Season setup: balanced identity / format columns and a full-width events panel */
+.setup-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"identity format" "events events";align-items:stretch;gap:14px}
+.setup-identity{grid-area:identity;min-width:0}
+.setup-format{grid-area:format;min-width:0}
+.setup-events{grid-area:events}
+.setup-card{height:100%;margin:0}
+.setup-card .section-head{align-items:flex-start}
+.setup-kicker{display:block;color:#83b891;font-size:8px;font-weight:700;letter-spacing:1.6px;margin-bottom:7px}
+.setup-index{display:grid;place-items:center;width:27px;height:27px;flex:0 0 27px;border:1px solid #385541;border-radius:50%;color:#9bc9a5;font-size:9px;font-weight:700}
+.setup-card .section-head h2{font-size:15px;letter-spacing:-.2px}
+.setup-card .section-head p{max-width:260px;color:#829087;font-size:10px;line-height:1.5}
+.setup-identity-fields,.setup-format-fields{grid-template-columns:minmax(0,1fr)}
+.setup-logo-field{margin-top:2px}
+.setup-logo-field .button-row{align-items:center}
+.setup-logo-field .logo-preview{width:100%;height:118px;max-width:none;border:1px dashed #3a4c3d;border-radius:5px;background:linear-gradient(145deg,rgba(27,48,32,.48),rgba(7,12,8,.85));}
+.setup-format-fields{gap:13px}
+.setup-format .range-field{padding:10px 11px;border:1px solid #29392d;border-radius:5px;background:rgba(5,10,7,.55)}
+.setup-format .field:has(select){padding-top:1px}
+.setup-format-note{padding-top:10px;border-top:1px solid #26352a;margin-top:14px}
+.event-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.event-option{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-width:0;min-height:116px;padding:14px;border:1px solid #2c3b30;border-radius:6px;background:linear-gradient(145deg,rgba(20,31,22,.78),rgba(8,12,9,.92));cursor:pointer;transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.event-option:hover{border-color:#55765c;background:linear-gradient(145deg,rgba(27,47,31,.9),rgba(9,15,10,.96))}
+.event-option.is-enabled{border-color:#6b9b74;background:linear-gradient(145deg,rgba(31,65,39,.55),rgba(9,17,11,.96));box-shadow:inset 0 0 22px rgba(100,171,113,.09),0 0 14px rgba(89,156,101,.08)}
+.event-option input{position:absolute;opacity:0;pointer-events:none}
+.event-option-main{display:flex;align-items:flex-start;gap:11px}
+.event-option-number{display:grid;place-items:center;width:25px;height:25px;flex:0 0 25px;border:1px solid #3a4c3d;border-radius:4px;color:#8eaa94;font-size:9px;font-weight:700}
+.event-option-copy{display:grid;gap:6px;min-width:0}
+.event-option-copy strong{font-size:12px;color:#e2eae3}
+.event-option-copy small{font-size:10px;line-height:1.45;color:#859188}
+.event-option-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid rgba(130,160,135,.14)}
+.event-option-meta>span{font-size:8px;letter-spacing:1px;color:#788b7c}
+.event-option-meta i{width:25px;height:14px;flex:0 0 25px;border:1px solid #536257;border-radius:20px;background:#151d17;position:relative;transition:background .18s ease,border-color .18s ease}
+.event-option-meta i:after{content:"";position:absolute;left:2px;top:2px;width:8px;height:8px;border-radius:50%;background:#849187;transition:transform .18s ease,background .18s ease}
+.event-option.is-enabled .event-option-meta i{background:#79b889;border-color:#79b889}
+.event-option.is-enabled .event-option-meta i:after{transform:translateX(11px);background:#071009}
+.event-option:focus-within{outline:2px solid #8dc99a;outline-offset:3px}
+.setup-continue{margin-top:17px}
+@media(max-width:700px){.setup-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"identity" "format" "events"}.event-options{grid-template-columns:1fr}.event-option{min-height:0;gap:13px}.setup-card{height:auto}}
