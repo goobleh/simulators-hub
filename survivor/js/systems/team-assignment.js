@@ -1,0 +1,1 @@
+export function randomizeTeams(state){const tribes=state.teams.slice(0,Number(state.settings.tribes));const shuffled=[...state.cast].sort(()=>Math.random()-.5);shuffled.forEach((player,index)=>player.team=tribes[index%tribes.length].id)}
