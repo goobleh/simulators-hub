@@ -3,3 +3,64 @@
 /* Season builder refinements */
 .range-field{display:grid;gap:10px}.range-line{display:flex;align-items:center;gap:14px}.range-line input[type=range]{flex:1;min-width:0;accent-color:#fff}.range-value{min-width:34px;text-align:right;font-size:13px;font-weight:700}.logo-preview{width:min(100%,260px);height:150px;padding:8px}.logo-preview img{width:100%;height:100%;object-fit:contain}.episode-card{padding:14px}.episode-top{margin:0}.episode-twists{margin-top:12px}.twist-toggle{border:1px solid #383838;background:#111;color:#ddd;padding:8px 11px;font-size:10px}.twist-toggle[aria-expanded=true]{background:#eee;color:#111}.twist-picker{display:flex;flex-wrap:wrap;gap:7px;padding-top:11px}.twist-option{border:1px solid #3a3a3a;background:#090909;color:#aaa;padding:8px 10px;font-size:10px}.twist-option.selected{background:#eee;color:#111;border-color:#eee}.twist-option:disabled{opacity:.3}.relationship-table{min-width:0;table-layout:fixed}.relationship-table th,.relationship-table td{padding:6px 4px}.relationship-table th:first-child,.relationship-table td:first-child{width:110px}.relationship-cell{width:100%;height:30px;border:1px solid transparent;border-radius:3px;color:#111;font-size:9px;font-weight:700;cursor:pointer}.relationship-cell:disabled{opacity:.2;cursor:default}.relationship-cell:hover{outline:1px solid #fff}.relationship-legend{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0;color:#888;font-size:10px}.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.rel-backdrop{position:fixed;inset:0;background:#000b;z-index:20;display:grid;place-items:center;padding:18px}.rel-menu{width:min(100%,390px);background:#0b0b0b;border:1px solid #444;padding:20px;box-shadow:0 15px 60px #000}.rel-menu h3{font-size:15px;margin:0 0 5px}.rel-menu p{font-size:11px;color:#888;margin:0 0 16px}.rel-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rel-choice{padding:11px 9px;border:1px solid #333;background:#111;color:#ddd;text-align:left;font-size:11px}.rel-choice.active{border-color:#fff}.rel-choice small{display:block;color:#888;font-size:9px;margin-top:4px}.rel-clear{margin-top:12px;width:100%}.timeline-footer{display:flex;justify-content:flex-end;margin-top:18px}.hidden{display:none!important}
 @media(max-width:700px){.relationship-table th:first-child,.relationship-table td:first-child{width:76px}.relationship-cell{height:26px;font-size:8px}.relationship-table th,.relationship-table td{padding:3px 2px}}
+
+/* Forest-green Survivor identity */
+:root{--accent:#63c78a;--accent-soft:#163c29;--accent-line:#28583c}
+body{background:radial-gradient(ellipse at 78% 12%,rgba(27,91,55,.16),transparent 38%),#050a07}
+.topbar{background:rgba(5,13,8,.94);border-bottom-color:#183323}
+.workspace{background:linear-gradient(115deg,rgba(13,39,24,.12),transparent 38%)}
+.sidebar{background:rgba(5,15,9,.92);border-right-color:#1c3827;padding:25px 14px 18px}
+.sidebar-brand{display:flex;align-items:center;gap:11px;padding:0 10px 25px;text-decoration:none;color:#f2fff6;border-bottom:1px solid #1c3827}
+.brand-mark{width:34px;height:34px;display:grid;place-items:center;background:#163c29;border:1px solid #36734e;color:#9ce5b5;font-size:17px;font-weight:800}
+.sidebar-brand strong{display:block;font-size:11px;letter-spacing:1.5px}
+.sidebar-brand small{display:block;margin-top:4px;color:#6f9a7d;font-size:8px;letter-spacing:1.4px}
+.season-panel{margin:19px 5px 23px;padding:13px 12px;background:linear-gradient(135deg,rgba(28,75,47,.45),rgba(12,31,19,.35));border:1px solid #244b32;border-radius:5px}
+.sidebar-label,.nav-group-label{display:block;color:#71917a;font-size:8px;font-weight:700;letter-spacing:1.5px}
+.season-mini{display:block;padding:8px 0 5px;color:#e1f3e6;font-size:10px;letter-spacing:1px}
+.season-indicator{display:flex;align-items:center;gap:6px;color:#7ca98a;font-size:8px;letter-spacing:1px}
+.season-indicator i,.save-state i{width:6px;height:6px;border-radius:50%;background:#67c98b;display:inline-block}
+#navigation{display:grid;gap:5px}
+.nav-group-label{padding:0 12px 9px}
+.nav-item{position:relative;gap:11px;padding:11px 10px;border:1px solid transparent;border-radius:5px;color:#8da294;transition:background .15s,border-color .15s,color .15s}
+.nav-item .nav-number{width:26px;height:26px;display:grid;place-items:center;border:1px solid #294735;border-radius:4px;color:#73927d;font-size:9px;flex:0 0 auto}
+.nav-copy{display:grid;gap:4px}
+.nav-copy strong{font-size:11px;font-weight:600}
+.nav-copy small{font-size:9px;color:#688171}
+.nav-item:hover{background:#102719;color:#e8f8ed}
+.nav-item.active{background:linear-gradient(90deg,rgba(34,95,57,.45),rgba(21,57,35,.22));border-color:#28583c;color:#f1fff4}
+.nav-item.active:before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:2px;background:#71d395;border-radius:2px}
+.nav-item.active .nav-number{background:#1d4a30;border-color:#3b7951;color:#a7edbd}
+.nav-item.active .nav-copy small{color:#91b99d}
+.sidebar-bottom{margin-top:auto;padding:20px 5px 0;border-top:1px solid #1c3827}
+.reset-season{width:100%;display:flex;align-items:center;gap:9px;padding:10px 11px;border:1px solid #563b35;border-radius:4px;background:rgba(65,35,29,.2);color:#c99b8d;text-align:left;font-size:10px}
+.reset-season:hover{background:rgba(94,47,37,.32);border-color:#895747;color:#f0c2b4}
+.reset-season span{font-size:15px}
+.hub-return{display:block;padding:14px 10px 12px;color:#779581;text-decoration:none;font-size:10px}
+.hub-return:hover{color:#b9e8c7}
+.sidebar-version{display:flex;justify-content:space-between;padding:10px;color:#506e59;font-size:8px;letter-spacing:1px}
+.sidebar-version span{color:#71917a}
+.save-state{display:flex;align-items:center;gap:7px;color:#83ad90}
+.main-content{position:relative}
+.page-heading h1{color:#f1fff4}
+.eyebrow{color:#77ad88}
+.section{border-top-color:#23412e}
+.field input:focus,.field select:focus,.field textarea:focus,.inline-input:focus{border-color:#5caa77;box-shadow:0 0 0 2px rgba(77,160,104,.12)}
+.btn.primary{background:#8ddba6;border-color:#8ddba6;color:#07150c}
+.btn.primary:hover{background:#a8e8b9;border-color:#a8e8b9}
+.btn{border-color:#34513d}
+.btn:hover{border-color:#609773;background:#183322}
+.nav-item span{color:#83a48d}
+@media(max-width:850px){
+ .sidebar{padding:12px;border-right:0;border-bottom-color:#23412e}
+ .sidebar-brand{display:none}
+ .season-panel{display:none}
+ .sidebar-bottom{display:flex;align-items:center;gap:8px;padding:10px 0 0;margin-top:10px}
+ .reset-season{width:auto;white-space:nowrap}
+ .hub-return{padding:10px;white-space:nowrap}
+ .sidebar-version{display:none}
+ #navigation{display:flex;overflow-x:auto;padding-bottom:2px}
+ .nav-group-label{display:none}
+ .nav-item{flex:0 0 auto}
+ .nav-copy small{display:none}
+}
+@media(max-width:560px){.sidebar-bottom{justify-content:space-between}.reset-season{font-size:9px;padding:9px}.hub-return{font-size:9px}}
