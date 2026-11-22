@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Survivor Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="back-link" href="../index.html">← HUB</a>
+      <div class="brand">SURVIVOR <span>SIMULATOR</span></div>
+      <div class="save-state" id="save-state">SAVED LOCALLY</div>
+    </header>
+    <div class="workspace">
+      <aside class="sidebar">
+        <div class="season-mini" id="season-mini">NEW SEASON</div>
+        <nav id="navigation" aria-label="Season setup">
+          <button class="nav-item active" data-page="setup"><span>01</span> Season setup</button>
+          <button class="nav-item" data-page="timeline"><span>02</span> Timeline & twists</button>
+          <button class="nav-item" data-page="cast"><span>03</span> Cast</button>
+          <button class="nav-item" data-page="archetypes"><span>04</span> Archetypes & classes</button>
+          <button class="nav-item" data-page="teams"><span>05</span> Team assignment</button>
+          <button class="nav-item" data-page="relationships"><span>06</span> Relationships</button>
+        </nav>
+        <div class="sidebar-foot">SEASON BUILDER <span>V1.0</span></div>
+      </aside>
+      <main class="main-content">
+        <div id="page-content"></div>
+      </main>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
