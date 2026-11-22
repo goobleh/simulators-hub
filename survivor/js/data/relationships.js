@@ -7,4 +7,4 @@ export const RELATIONSHIPS=[
  {name:"Distrust",level:1,kind:"bad",color:"#a65a5a",short:"DISTRUST"},
  {name:"Enemies",level:2,kind:"bad",color:"#812d2d",short:"ENEMIES"}
 ];
- 
+  
