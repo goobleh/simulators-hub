@@ -5,5 +5,5 @@ export const twistDefs=[
  {category:"Teams",name:"Mutiny",phase:"pre",desc:"Players are given the opportunity to switch tribes."},
  {category:"Immunity",name:"Double Immunity Challenge",phase:"merge",desc:"Two individual players can win immunity."},
  {category:"Immunity",name:"Group Immunity",phase:"merge",desc:"A group of players earns immunity together."},
- {category:"Immunity",name:"Joint Tribal Council",phase:"pre",desc:"Multiple tribes attend one combined Tribal Council."}
+ {category:"Immunity",name:"Joint Tribal Council",phase:"pre",desc:"Multiple tribes attend one combined Tribal Council."} 
 ];
