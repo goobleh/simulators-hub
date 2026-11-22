@@ -1,4 +1,4 @@
-export export function renderRelationships({state,heading,esc,displayName,RELATIONSHIPS,relColor}){
+export function renderRelationships({state,heading,esc,displayName,RELATIONSHIPS,relColor}){
  const players=state.cast;
  return heading("05 / SOCIAL GAME","Relationships","Click any square to set the relationship between two castaways. Each relationship works both ways.")+
  `<div class="section"><div class="section-head"><div><h2>Relationship matrix</h2><p>One shared relationship per pair. Colour shows the type and strength.</p></div></div>
