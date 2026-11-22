@@ -105,7 +105,7 @@ function renderTeams(){
  <div class="section"><div class="section-head"><h2>Team preview</h2><button class="btn primary" data-randomize>Generate random teams</button></div><div class="team-preview">${state.teams.map((t,i)=>`<div class="team-preview-item"><div class="team-swatch" style="background:${safeColor(t.color)};height:4px;margin:-12px -12px 12px"></div><strong>${esc(t.name)} ${i===tribes?"· MERGE":""}</strong><span>${i===tribes?"All players after merge":state.cast.filter(p=>p.team===t.id).map(p=>esc(displayName(p)||"Unnamed")).join(", ")||"No players assigned"}</span></div>`).join("")}</div></div>
  <div class="section"><div class="section-head"><h2>Advantages</h2></div><div class="locked">Universal Advantages <b>LOCKED</b></div><div class="locked" style="margin-top:8px">Tribe Advantages <b>LOCKED</b></div><div class="locked" style="margin-top:8px">Merge Advantages <b>LOCKED</b></div></div><button class="btn primary" data-go="relationships">Continue to relationships →</button>`;
 }
-function safeColor(c){if(/^#[0-9a-fA-F]{6}$/.test(c||""))return c;if(/^linear-gradient\((?:\s*#[0-9a-fA-F]{6}\s*(?:\d{1,3}%?)?\s*,?)+\)$/.test(c||""))return c;return "#555555"}
+function safeColor(c){if(/^#[0-9a-fA-F]{6}$/.test(c||""))return c;if(/^linear-gradient\([0-9a-zA-Z#.,%\s-]+\)$/.test(c||"")&&/#[0-9a-fA-F]{6}/.test(c))return c;return "#555555"}
 function renderRelationships(){
  const players=state.cast;
  return heading("06 / SOCIAL GAME","Relationships","Set the starting dynamics between castaways, then build named alliances and member strengths.")+
