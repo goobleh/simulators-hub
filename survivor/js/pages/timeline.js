@@ -1,4 +1,4 @@
-export export function renderTimeline({state,heading,esc,twistDefs,episodeCount,episodePhase}){
+export function renderTimeline({state,heading,esc,twistDefs,episodeCount,episodePhase}){
  const count=episodeCount();
  while(state.timeline.length<count)state.timeline.push({twists:[],jointSafe:0});
  state.timeline=state.timeline.slice(0,count);
