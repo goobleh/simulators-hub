@@ -334,3 +334,5 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
 .winner-panel p{color:#9eada1;font-size:11px}
 .game-history p{font-size:9px;color:#9eada1;padding:7px 0;border-bottom:1px solid #26352a}
 @media(max-width:650px){.game-heading h1{font-size:22px}.game-roster{grid-template-columns:repeat(2,minmax(0,1fr))}.game-event-list{grid-template-columns:1fr}.game-panel{padding:13px}.game-table{font-size:9px}.game-table th,.game-table td{padding:8px 5px}.game-table td:first-child{white-space:normal}.challenge-result{align-items:flex-start;flex-direction:column}}
+
+.challenge-stats{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:13px}.challenge-stats>span{font-size:8px;letter-spacing:1px;color:#819385;margin-right:3px}.challenge-stats i{font-style:normal;font-size:9px;padding:5px 7px;border-radius:3px;background:#142319;border:1px solid #304b36;color:#b9d9bf}
