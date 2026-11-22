@@ -1,5 +1,5 @@
 import {loadState,saveState} from "./storage.js";
-const defaultState=()=>({archetypeStats:{},settings:{title:"Untitled Season",logo:"",castSize:18,tribes:3,mergeAt:11,quits:true,expulsions:true,medical:true,finale:"Final 3"},cast:[],teams:[],assignment:"random",timeline:[],relationships:{},alliances:[]});
+const defaultState=()=>({archetypeStats:{},settings:{title:"Untitled Season",logo:"",castSize:18,tribes:3,mergeAt:11,quits:true,expulsions:true,medical:true,finale:"Final 3"},cast:[],teams:[],assignment:"random",timeline:[],relationships:{},alliances:[],allianceDraft:{name:"",members:[],strengths:{}}});
 export let state=loadState(defaultState);
 export function save(){saveState(state)}
 export function resetSeason(){Object.assign(state,defaultState());ensureData();save();}
