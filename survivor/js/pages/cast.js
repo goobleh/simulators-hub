@@ -1,4 +1,4 @@
-export export function renderCast({state,heading,esc,displayName,ARCHETYPES}){
+export function renderCast({state,heading,esc,displayName,ARCHETYPES}){
  return heading("03 / CASTAWAYS","Cast","Add your castaways. The number of profiles matches the cast size in season setup.")+
  `<div class="section-head"><div><h2>Cast list · ${state.cast.length} players</h2><p>Names are displayed by first name unless a nickname is enabled.</p></div></div><div class="cast-grid">${state.cast.map((p,i)=>`<article class="player-card"><div class="player-card-head"><strong>CASTAWAY ${String(i+1).padStart(2,"0")}</strong><button class="btn subtle" data-clear-player="${i}">Clear</button></div><div class="player-preview"><div class="avatar">${p.image?`<img src="${esc(p.image)}" alt="" style="width:100%;height:100%;object-fit:cover">`:"PHOTO"}</div><div><strong>${esc(displayName(p)||"Unnamed player")}</strong><br><small>${esc(p.archetype||"No archetype selected")}</small></div></div><div class="player-fields">
  <div class="field"><label>Player name</label><input data-player="${i}" data-key="name" value="${esc(p.name)}" placeholder="Full name"></div>
