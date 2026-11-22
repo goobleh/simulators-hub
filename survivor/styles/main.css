@@ -5,11 +5,10 @@
 @media(max-width:700px){.relationship-table th:first-child,.relationship-table td:first-child{width:76px}.relationship-cell{height:26px;font-size:8px}.relationship-table th,.relationship-table td{padding:3px 2px}}
 
 
-/* Flat green tint */
+/* Dark base with a subtle green glow at the top centre */
 :root{--accent:#79bd8c}
-body{background:#102719}
-.topbar{background:#102719;border-bottom-color:#31533a}
-.main-content{width:min(100%,1100px);padding:42px 56px 80px;margin:0 auto}
+body{background:radial-gradient(ellipse 72% 48% at 50% 0%,rgba(37,91,51,.48) 0%,rgba(15,34,21,.24) 48%,rgba(5,8,6,0) 82%),#050706}
+.topbar{background:#070b08;border-bottom-color:#202a22}
 .field input:focus,.field select:focus,.field textarea:focus,.inline-input:focus{border-color:#79bd8c}
 .field input[type=checkbox]{accent-color:#79bd8c}
 .range-line input[type=range]{accent-color:#79bd8c}
