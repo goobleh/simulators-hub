@@ -47,8 +47,8 @@ document.addEventListener("click",e=>{
  const clearRel=e.target.closest("[data-clear-rel]");if(clearRel){delete state.relationships[clearRel.dataset.clearRel];document.querySelector(".rel-backdrop")?.remove();render();return}
  const ass=e.target.closest("[data-assignment]");if(ass){state.assignment=ass.dataset.assignment;render();return}
  if(e.target.closest("[data-randomize]")){randomizeTeams(state);render();return}
- if(e.target.closest("[data-add-alliance]")){state.alliances.push({name:"",members:[],strengths:{}});render();return}
- const alliancePlayer=e.target.closest("[data-alliance-player]");if(alliancePlayer){const i=+alliancePlayer.dataset.alliancePlayer,id=alliancePlayer.dataset.playerId,a=state.alliances[i];a.members=a.members||[];a.members=a.members.includes(id)?a.members.filter(x=>x!==id):[...a.members,id];a.strengths=a.strengths||{};render();return}
+ if(e.target.closest("[data-add-alliance]")){const draft=state.allianceDraft||{name:"",members:[],strengths:{}};if(!draft.members?.length){alert("Select at least one castaway for the alliance.");return}state.alliances.push({name:draft.name||"Alliance "+(state.alliances.length+1),members:[...draft.members],strengths:{...(draft.strengths||{})}});state.allianceDraft={name:"",members:[],strengths:{}};save();render();return}
+ const alliancePlayer=e.target.closest("[data-alliance-player]");if(alliancePlayer){const key=alliancePlayer.dataset.alliancePlayer,id=alliancePlayer.dataset.playerId,a=key==="draft"?(state.allianceDraft||(state.allianceDraft={name:"",members:[],strengths:{}})):state.alliances[+key];a.members=a.members||[];a.members=a.members.includes(id)?a.members.filter(x=>x!==id):[...a.members,id];a.strengths=a.strengths||{};save();render();return}
  const ra=e.target.closest("[data-remove-alliance]");if(ra){state.alliances.splice(+ra.dataset.removeAlliance,1);render();return}
 });
 document.addEventListener("change",e=>{
@@ -66,8 +66,9 @@ document.addEventListener("change",e=>{
  if(el.dataset.gradient!==undefined){const t=state.teams[+el.dataset.gradient];t.gradient=el.checked;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save();render();return}
  if(el.dataset.playerTeam!==undefined){state.cast[+el.dataset.playerTeam].team=el.value;save();render();return}
  if(el.dataset.rel!==undefined){state.relationships[el.dataset.rel]=el.value;save();return}
+ if(el.dataset.allianceDraft!==undefined){state.allianceDraft=state.allianceDraft||{name:"",members:[],strengths:{}};state.allianceDraft[el.dataset.allianceDraft]=el.value;save();return}
  if(el.dataset.alliance!==undefined){state.alliances[+el.dataset.alliance][el.dataset.key]=el.value;save();return}
- if(el.dataset.strengthAlliance!==undefined){const a=state.alliances[+el.dataset.strengthAlliance];a.strengths=a.strengths||{};a.strengths[el.dataset.playerId]=el.value;save();return}
+ if(el.dataset.strengthAlliance!==undefined){const a=el.dataset.strengthAlliance==="draft"?(state.allianceDraft||(state.allianceDraft={name:"",members:[],strengths:{}})):state.alliances[+el.dataset.strengthAlliance];a.strengths=a.strengths||{};a.strengths[el.dataset.playerId]=el.value;save();return}
 });
 document.addEventListener("input",e=>{const el=e.target;if(el.dataset.rangeSetting){const out=document.getElementById("value-"+el.dataset.rangeSetting);if(out)out.textContent=el.value}if(el.dataset.statPlayer!==undefined){const out=document.getElementById("stat-value-"+el.dataset.statPlayer+"-"+el.dataset.statIndex);if(out)out.textContent=el.value}});
 function init(){ensureData();state.cast.forEach(p=>{if(!p.archetype){p.archetype="The Balanced";p.class="All-rounder";p.stats=[5,5,5,5,5,5,5]}});if(!state.cast.some(p=>p.team))randomizeTeams(state);render()}
