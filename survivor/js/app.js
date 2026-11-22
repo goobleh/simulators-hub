@@ -41,7 +41,7 @@ document.addEventListener("click",e=>{
  const label=e.target.closest("[data-label-toggle]");if(label){const i=+label.dataset.labelToggle;state.teams[i].labelEdit=!state.teams[i].labelEdit;render();return}
  const nav=e.target.closest("[data-page]");if(nav){page=nav.dataset.page;render();return}
  const go=e.target.closest("[data-go]");if(go){page=go.dataset.go;render();return}
- const twist=e.target.closest("[data-episode-twist]");if(twist){const i=+twist.dataset.episodeTwist,name=twist.dataset.twistName,list=state.timeline[i].twists;state.timeline[i].twists=list.includes(name)?list.filter(x=>x!==name):[...list,name];render();return}
+ const twist=e.target.closest("[data-episode-twist]");if(twist){const i=+twist.dataset.episodeTwist,name=twist.dataset.twistName,list=state.timeline[i].twists;state.timeline[i].twists=list.includes(name)?list.filter(x=>x!==name):[...list,name];render();const cards=document.querySelectorAll(".episode-card");if(cards[i])cards[i].open=true;return}
  const openRel=e.target.closest("[data-open-rel]");if(openRel){openRelationshipMenu(state,openRel.dataset.openRel,openRel.dataset.relA,openRel.dataset.relB,esc,displayName,RELATIONSHIPS);return}
  const setRel=e.target.closest("[data-set-rel]");if(setRel){state.relationships[setRel.dataset.relKey]=setRel.dataset.setRel;document.querySelector(".rel-backdrop")?.remove();render();return}
  const clearRel=e.target.closest("[data-clear-rel]");if(clearRel){delete state.relationships[clearRel.dataset.clearRel];document.querySelector(".rel-backdrop")?.remove();render();return}
