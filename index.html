@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#07130d">
   <title>Simulators Hub</title>
   <style>
     *{box-sizing:border-box}
@@ -17,9 +17,11 @@
     .simulator-status{display:flex;align-items:center;gap:7px;color:#777;font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase}
     .lock{width:11px;height:9px;position:relative;display:inline-block;border:1px solid #777;border-radius:2px}
     .lock:before{content:"";position:absolute;width:5px;height:5px;left:2px;top:-6px;border:1px solid #777;border-bottom:0;border-radius:5px 5px 0 0}
-    .simulator.available{cursor:pointer;border-color:#555}
-    .simulator.available:hover{background:#151515;border-color:#888}
-    .simulator.available .simulator-status{color:#aaa}
+    .simulator.available{cursor:pointer;border-color:#315d40;background:linear-gradient(145deg,#102719,#09170e);box-shadow:inset 0 0 35px rgba(61,150,91,.08)}
+    .simulator.available:hover{background:linear-gradient(145deg,#173a25,#0d2114);border-color:#5a9a6d;box-shadow:inset 0 0 42px rgba(78,180,112,.15)}
+    .simulator.available .simulator-status{color:#91cba0}
+    .simulator.available .simulator-name{color:#e5f7e9}
+    body{background:radial-gradient(ellipse at 50% 48%,rgba(25,83,48,.18),transparent 60%),#000}
     @media(max-width:520px){body{padding:28px 18px}.simulator-list{grid-template-columns:1fr}.simulator{min-height:96px}}
   </style>
 </head>
