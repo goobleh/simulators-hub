@@ -61,6 +61,7 @@ document.addEventListener("change",e=>{
  if(el.dataset.player!==undefined){const p=state.cast[+el.dataset.player],k=el.dataset.key;p[k]=el.value;if(k==="archetype"){const a=ARCHETYPES.find(x=>x.name===p.archetype)||ARCHETYPES[0];p.class=a.class;p.stats=[...a.stats]}render();return}
  if(el.dataset.team!==undefined){const t=state.teams[+el.dataset.team],k=el.dataset.key;t[k]=el.value;if(k==="name"||k==="label")render();else save();return}
  if(el.dataset.teamColour!==undefined){const t=state.teams[+el.dataset.team];t[el.dataset.colourPart]=el.value;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save();render();return}
+ if(el.dataset.teamHex!==undefined){const t=state.teams[+el.dataset.teamHex],part=el.dataset.colourPart;if(/^#[0-9a-fA-F]{6}$/.test(el.value)){t[part]=el.value;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save();render()}return}
  if(el.dataset.gradient!==undefined){const t=state.teams[+el.dataset.gradient];t.gradient=el.checked;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save();render();return}
  if(el.dataset.playerTeam!==undefined){state.cast[+el.dataset.playerTeam].team=el.value;save();render();return}
  if(el.dataset.rel!==undefined){state.relationships[el.dataset.rel]=el.value;save();return}
