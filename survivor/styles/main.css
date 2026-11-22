@@ -169,3 +169,30 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
 .alliance-saved-members>span{display:flex;gap:6px;align-items:center;padding:6px 8px;border:1px solid #2d3b30;border-radius:4px;background:#0c140e;font-size:10px;color:#d3dfd5}
 .alliance-saved-members small{font-size:8px;color:#9bc4a3;text-transform:uppercase}
 @media(max-width:600px){.episode-summary-right{gap:6px;flex-wrap:wrap}.twist-category-labels{display:flex;justify-content:flex-start}.stat-sliders{grid-template-columns:1fr}.stat-slider{grid-template-columns:66px minmax(0,1fr) 16px}.relationship-cell{font-size:6px;letter-spacing:-.5px}}
+
+
+/* Final compact dropdown and team identity layout */
+.twist-category h3{display:inline-flex;padding:5px 8px;margin:8px 0 2px;border-radius:3px;font-size:8px;letter-spacing:.7px;line-height:1;text-transform:uppercase}
+.twist-category h3.cat-elimination{background:#482923!important;color:#f0a08e!important}
+.twist-category h3.cat-teams{background:#1c344d!important;color:#a9d1f7!important}
+.twist-category h3.cat-immunity{background:#493a19!important;color:#f0d78c!important}
+.twist-category h3.cat-other{background:#292929!important;color:#ddd!important}
+.twist-categories{gap:7px;padding-top:8px}
+.twist-category .twist-picker{gap:5px;padding:5px 0 2px}
+.twist-option{padding:6px 8px;font-size:9px;line-height:1.2}
+.episode-body{padding:0 13px 12px}
+.team-card>.eyebrow{font-size:9px;letter-spacing:1px;color:#8da493;margin-bottom:8px}
+.team-identity-row{display:flex;align-items:center;gap:9px;min-width:0}
+.team-colour-pair{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+.team-colour-control{width:34px;height:34px;display:block;border:1px solid #405044;border-radius:4px;padding:3px;background:#080c09;cursor:pointer}
+.team-colour-control input[type=color]{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer}
+.team-name-field{flex:1;min-width:0;margin:0!important}
+.team-name-field input{width:100%;min-width:0}
+.team-label-row{display:grid;gap:6px;margin-top:11px}
+.team-label-row>label{font-size:9px;color:#9aaa9d}
+.team-colour-options{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px}
+.team-colour-options .gradient-toggle{margin:0;align-self:auto}
+.team-hex-pair{display:flex;gap:6px;min-width:0}
+.team-hex-pair .hex-input{width:76px;padding:6px;font-size:9px}
+.team-contrast-test{margin-top:13px}
+@media(max-width:600px){.team-colour-control{width:32px;height:32px}.team-hex-pair .hex-input{width:68px}}
