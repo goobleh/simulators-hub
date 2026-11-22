@@ -1,4 +1,5 @@
 const pick=a=>a[Math.floor(Math.random()*a.length)];
+const weightedPick=list=>{let roll=Math.random()*list.reduce((n,x)=>n+Math.pow(Math.max(.1,x.score),1.25),0);return list.find(x=>(roll-=Math.pow(Math.max(.1,x.score),1.25))<=0)||list[0]};
 const alive=p=>p.status==="active";
 export const playersOnTribe=(g,id)=>g.cast.filter(p=>alive(p)&&p.team===id);
 export const activeTribes=g=>g.tribes.filter(t=>playersOnTribe(g,t.id).length);
@@ -24,10 +25,10 @@ export function runChallenge(s){
  const c=pick(types);
  if(g.merged){
   const scores=g.cast.filter(alive).map(p=>({playerId:p.id,score:c.w.reduce((n,w,i)=>n+w*(+p.stats[i]||5),0)*(.72+Math.random()*.56)})).sort((a,b)=>b.score-a.score);
-  g.challenge={name:c.name,description:c.description,stats:c.w.map((w,i)=>w>0?["Physical","Endurance","Strategy","Social","Loyalty","Threat","Intuition"][i]:null).filter(Boolean),individual:true,winner:scores[0].playerId,results:scores};g.losers=["merge"];
+  const winner=weightedPick(scores);g.challenge={name:c.name,description:c.description,stats:c.w.map((w,i)=>w>0?["Physical","Endurance","Strategy","Social","Loyalty","Threat","Intuition"][i]:null).filter(Boolean),individual:true,winner:winner.playerId,results:scores};g.losers=["merge"];
  }else{
   const scores=activeTribes(g).map(t=>{const ps=playersOnTribe(g,t.id),avg=c.w.reduce((n,w,i)=>n+w*ps.reduce((a,p)=>a+(+p.stats[i]||5),0)/Math.max(1,ps.length),0),bond=ps.length>1?ps.reduce((n,p)=>n+ps.reduce((a,q)=>a+(p.id===q.id?0:rel(s,p,q)),0),0)/(ps.length*(ps.length-1)):0;return {tribeId:t.id,score:avg*(1+bond*.018)*(.72+Math.random()*.56)}}).sort((a,b)=>b.score-a.score);
-  g.challenge={name:c.name,description:c.description,stats:c.w.map((w,i)=>w>0?["Physical","Endurance","Strategy","Social","Loyalty","Threat","Intuition"][i]:null).filter(Boolean),winner:scores[0].tribeId,results:scores};g.losers=scores.slice(1).map(x=>x.tribeId);
+  const winner=weightedPick(scores);g.challenge={name:c.name,description:c.description,stats:c.w.map((w,i)=>w>0?["Physical","Endurance","Strategy","Social","Loyalty","Threat","Intuition"][i]:null).filter(Boolean),winner:winner.tribeId,results:scores};g.losers=scores.filter(x=>x.tribeId!==winner.tribeId).map(x=>x.tribeId);
  }
  g.stage="immunity";g.history.push({episode:g.episode,type:"Immunity",winner:g.challenge.winner});
 }
