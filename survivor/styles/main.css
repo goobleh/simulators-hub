@@ -32,3 +32,17 @@ body{background:radial-gradient(ellipse at 80% 0%,rgba(34,88,49,.10),transparent
  .main-content{padding:32px 22px 60px}
 }
 @media(max-width:560px){.main-content{padding:28px 16px 50px}}
+
+
+/* Flat green theme. No sidebar or navigation strip. */
+:root{--accent:#79bd8c}
+body{background:#102719}
+.topbar{background:#102719;border-bottom-color:#31533a}
+.main-content{width:min(100%,1100px);padding:42px 56px 80px;margin:0 auto}
+.field input:focus,.field select:focus,.field textarea:focus,.inline-input:focus{border-color:#79bd8c}
+.field input[type=checkbox]{accent-color:#79bd8c}
+.range-line input[type=range]{accent-color:#79bd8c}
+.btn.primary{background:#79bd8c;color:#07110a;border-color:#79bd8c}
+.btn.primary:hover{background:#91cda1;border-color:#91cda1}
+@media(max-width:850px){.main-content{padding:32px 22px 60px}}
+@media(max-width:560px){.main-content{padding:28px 16px 50px}}
