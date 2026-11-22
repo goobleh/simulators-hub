@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07110b">
+  <meta name="theme-color" content="#102719">
   <title>Survivor Simulator</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/layout.css">
@@ -17,21 +17,9 @@
       <div class="brand">SURVIVOR <span>SIMULATOR</span></div>
       <div class="save-state" id="save-state">SAVED LOCALLY</div>
     </header>
-    <div class="workspace">
-      <div class="navigation-bar">
-        <div class="season-mini" id="season-mini">NEW SEASON</div>
-        <nav id="navigation" aria-label="Season setup">
-          <button class="nav-item active" data-page="setup"><span>01</span> Season setup</button>
-          <button class="nav-item" data-page="timeline"><span>02</span> Timeline & twists</button>
-          <button class="nav-item" data-page="cast"><span>03</span> Cast</button>
-          <button class="nav-item" data-page="teams"><span>04</span> Team assignment</button>
-          <button class="nav-item" data-page="relationships"><span>05</span> Relationships</button>
-        </nav>
-      </div>
-      <main class="main-content">
-        <div id="page-content"></div>
-      </main>
-    </div>
+    <main class="main-content">
+      <div id="page-content"></div>
+    </main>
   </div>
   <script type="module" src="js/app.js"></script>
 </body>
