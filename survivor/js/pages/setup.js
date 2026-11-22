@@ -1,5 +1,5 @@
 export function renderSetup({state,heading,field,esc,rangeField}){
- const s=state.settings;
+ const s=state.settings; 
  return heading("01 / FOUNDATION","Season setup","Set the format and identity of your season.")+
  `<section class="section"><div class="section-head"><h2>Season identity</h2></div><div class="field-grid"> 
  ${field("Season title","title",s.title)}
