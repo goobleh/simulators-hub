@@ -336,3 +336,44 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
 @media(max-width:650px){.game-heading h1{font-size:22px}.game-roster{grid-template-columns:repeat(2,minmax(0,1fr))}.game-event-list{grid-template-columns:1fr}.game-panel{padding:13px}.game-table{font-size:9px}.game-table th,.game-table td{padding:8px 5px}.game-table td:first-child{white-space:normal}.challenge-result{align-items:flex-start;flex-direction:column}}
 
 .challenge-stats{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:13px}.challenge-stats>span{font-size:8px;letter-spacing:1px;color:#819385;margin-right:3px}.challenge-stats i{font-style:normal;font-size:9px;padding:5px 7px;border-radius:3px;background:#142319;border:1px solid #304b36;color:#b9d9bf}
+
+
+/* Gameplay visual refresh */
+.game-brand{display:flex;align-items:center;gap:10px;min-height:34px;margin:0 0 16px;padding:0 0 12px;border-bottom:1px solid #26352a;color:#dce8de;font-size:11px;font-weight:700;letter-spacing:.5px}
+.game-brand img{width:auto;height:34px;max-width:120px;object-fit:contain}
+.game-tribe-panel{border-left:3px solid var(--tribe-color,#55735a)!important}
+.game-tribe-panel .game-panel-head h2{color:var(--tribe-color,#a9c5ad)}
+.game-portrait-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:13px 10px}
+.game-portrait{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center;gap:5px;padding:7px 5px 9px;border:1px solid #29382e;border-radius:5px;background:#0b120d}
+.game-portrait>img,.game-portrait>.game-avatar-placeholder{display:block;width:100%;aspect-ratio:1/1;height:auto;max-width:150px;object-fit:cover;border-radius:4px;background:#17241a}
+.game-portrait>.game-avatar-placeholder{display:grid;place-items:center;font-size:25px}
+.game-portrait strong{font-size:10px;color:#e0e9e1;line-height:1.25;overflow-wrap:anywhere}
+.game-portrait small{font-size:8px;color:#8c9b90;line-height:1.25;overflow-wrap:anywhere}
+.game-tribe-panel .game-portrait{border-color:color-mix(in srgb,var(--tribe-color,#55735a) 40%,#29382e)}
+.game-alliance{border-top:1px solid #26352a;padding:13px 0}
+.game-alliance-title{align-items:center}
+.game-tribe-tabs span{border-color:color-mix(in srgb,var(--tribe-color,#55735a) 45%,#2b3a2f)}
+.game-tribe-tabs span.active{background:color-mix(in srgb,var(--tribe-color,#55735a) 25%,#0b100d);border-color:var(--tribe-color,#5b8063);color:#e4eee5}
+.game-vote-stack{display:grid;justify-items:center;gap:10px}
+.revealed-vote{width:min(100%,260px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;padding:13px}
+.revealed-vote>span{align-self:flex-start}
+.revealed-vote .game-portrait{width:100%;max-width:145px;border:0;background:transparent;padding:0}
+.revealed-vote .game-portrait>img,.revealed-vote .game-portrait>.game-avatar-placeholder{width:100%;height:auto;aspect-ratio:1/1}
+.game-voting-record{display:grid;gap:8px}
+.game-vote-record{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px;padding:10px;background:#0b120d;border:1px solid #27362c;border-radius:5px}
+.game-vote-person{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;text-align:center}
+.game-vote-person img,.game-vote-person .game-avatar-placeholder{width:48px;height:48px;object-fit:cover;border-radius:4px}
+.game-vote-person strong{font-size:10px;color:#dce6dd;overflow-wrap:anywhere}
+.game-vote-arrow{font-size:8px;letter-spacing:1px;color:#839287;text-align:center}
+.game-plan-feature{display:flex;align-items:center;gap:11px;margin:0 0 10px}
+.game-plan-feature>img,.game-plan-feature>.game-avatar-placeholder{width:58px;height:58px;flex:0 0 58px;object-fit:cover;border-radius:4px;background:#17241a}
+.game-plan-feature h3{margin:3px 0 4px}
+.game-plan-feature p{margin:0}
+.game-plan-feature.compact{margin:9px 0}
+.game-plan-feature.compact>img,.game-plan-feature.compact>.game-avatar-placeholder{width:34px;height:34px;flex-basis:34px}
+.game-people-line{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.game-people-line>span{display:flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #29382e;border-radius:4px;background:#0b120d;font-size:9px;color:#cbd7cd}
+.game-people-line img,.game-people-line .game-avatar-placeholder{width:23px;height:23px;object-fit:cover;border-radius:3px}
+.game-swing{padding:12px 0;border-bottom:1px solid #26352a}
+.game-swing p{font-size:10px;line-height:1.6;color:#9eaba1;margin:5px 0 0}
+@media(max-width:600px){.game-portrait-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.game-portrait{padding:5px 3px 7px}.game-portrait strong{font-size:9px}.game-vote-record{gap:5px;padding:8px 4px}.game-vote-person img,.game-vote-person .game-avatar-placeholder{width:40px;height:40px}.game-vote-arrow{font-size:7px}.game-brand img{max-width:90px}}
