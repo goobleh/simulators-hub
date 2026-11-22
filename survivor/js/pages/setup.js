@@ -1,7 +1,7 @@
 export function renderSetup({state,heading,field,esc,rangeField}){
  const s=state.settings;
  return heading("01 / FOUNDATION","Season setup","Set the format and identity of your season.")+
- `<section class="section"><div class="section-head"><h2>Season identity</h2></div><div class="field-grid">
+ `<section class="section"><div class="section-head"><h2>Season identity</h2></div><div class="field-grid"> 
  ${field("Season title","title",s.title)}
  <div class="field"><label for="season-logo">Logo image URL</label><input id="season-logo" data-setting="logo" value="${esc(s.logo)}" placeholder="https://..."><span class="hint">Optional. Paste a direct image URL.</span></div>
  <div class="field full"><div class="field-label">Logo preview</div><div class="logo-preview" id="logo-preview">${s.logo?`<img src="${esc(s.logo)}" alt="Season logo">`:"NO LOGO"}</div></div>
