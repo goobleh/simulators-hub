@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en"> 
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07130d"> 
+  <meta name="theme-color" content="#07110b">
   <title>Survivor Simulator</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/layout.css">
@@ -15,33 +15,19 @@
     <header class="topbar">
       <a class="back-link" href="../index.html">← HUB</a>
       <div class="brand">SURVIVOR <span>SIMULATOR</span></div>
-      <div class="save-state" id="save-state"><i></i> SAVED LOCALLY</div>
+      <div class="save-state" id="save-state">SAVED LOCALLY</div>
     </header>
     <div class="workspace">
-      <aside class="sidebar">
-        <a class="sidebar-brand" href="../index.html" aria-label="Back to Simulators Hub">
-          <span class="brand-mark">S</span>
-          <span><strong>SURVIVOR</strong><small>SEASON BUILDER</small></span>
-        </a>
-        <div class="season-panel">
-          <span class="sidebar-label">CURRENT SEASON</span>
-          <strong class="season-mini" id="season-mini">NEW SEASON</strong>
-          <span class="season-indicator"><i></i> SAVED LOCALLY</span>
-        </div>
-        <nav id="navigation" aria-label="Season builder">
-          <span class="nav-group-label">BUILD YOUR SEASON</span>
-          <button class="nav-item active" data-page="setup"><span class="nav-number">01</span><span class="nav-copy"><strong>Season setup</strong><small>Format & identity</small></span></button>
-          <button class="nav-item" data-page="timeline"><span class="nav-number">02</span><span class="nav-copy"><strong>Timeline & twists</strong><small>Episode schedule</small></span></button>
-          <button class="nav-item" data-page="cast"><span class="nav-number">03</span><span class="nav-copy"><strong>Castaways</strong><small>Build your cast</small></span></button>
-          <button class="nav-item" data-page="teams"><span class="nav-number">04</span><span class="nav-copy"><strong>Tribes & teams</strong><small>Team assignment</small></span></button>
-          <button class="nav-item" data-page="relationships"><span class="nav-number">05</span><span class="nav-copy"><strong>Social dynamics</strong><small>Relationships & alliances</small></span></button>
+      <div class="navigation-bar">
+        <div class="season-mini" id="season-mini">NEW SEASON</div>
+        <nav id="navigation" aria-label="Season setup">
+          <button class="nav-item active" data-page="setup"><span>01</span> Season setup</button>
+          <button class="nav-item" data-page="timeline"><span>02</span> Timeline & twists</button>
+          <button class="nav-item" data-page="cast"><span>03</span> Cast</button>
+          <button class="nav-item" data-page="teams"><span>04</span> Team assignment</button>
+          <button class="nav-item" data-page="relationships"><span>05</span> Relationships</button>
         </nav>
-        <div class="sidebar-bottom">
-          <button class="reset-season" type="button" data-reset-season><span>↻</span> Reset entire season</button>
-          <a class="hub-return" href="../index.html">← Back to simulator hub</a>
-          <div class="sidebar-version">SURVIVOR SIMULATOR <span>V1.1</span></div>
-        </div>
-      </aside>
+      </div>
       <main class="main-content">
         <div id="page-content"></div>
       </main>
