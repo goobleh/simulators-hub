@@ -2,7 +2,7 @@ import {loadState,saveState} from "./storage.js";
 const defaultState=()=>({archetypeStats:{},settings:{title:"Untitled Season",logo:"",castSize:18,tribes:3,mergeAt:11,quits:true,expulsions:true,medical:true,finale:"Final 3"},cast:[],teams:[],assignment:"random",timeline:[],relationships:{},alliances:[]});
 export let state=loadState(defaultState);
 export function save(){saveState(state)}
-function ensureData(){
+export function ensureData(){
  const n=Number(state.settings.castSize)||18;
  while(state.cast.length<n)state.cast.push({id:crypto.randomUUID(),name:"",nicknameOn:false,nickname:"",image:"",gender:"",archetype:"",class:"",stats:[5,5,5,5,5,5,5],team:""});
  if(state.cast.length>n)state.cast=state.cast.slice(0,n);
