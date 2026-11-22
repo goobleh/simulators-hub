@@ -47,7 +47,7 @@ export function generateEvents(s,tribeId){
  entry.confessionals=ps.map(p=>{const other=ps.find(q=>q.id!==p.id&&rel(s,p,q)!==0);return {playerId:p.id,quote:other?(rel(s,p,other)>0?"I feel like "+(other.name||"they")+" and I are starting to trust each other. That could be important.":"I'm not completely sure where "+(other.name||"they")+" stand with me, and I don't love that."):"I'm keeping my options open. It's still early, and I don't want to show all my cards."}});
 }
 function createTribal(s){
- const g=s.game,id=g.losers[g.tribalIndex],ps=playersOnTribe(g,id);if(!id){finishEpisode(s);return}
+ const g=s.game,id=g.losers[g.tribalIndex],ps=playersOnTribe(g,id).filter(p=>!g.challenge?.individual||p.id!==g.challenge.winner);if(!id){finishEpisode(s);return}
  const groups=g.alliances.map(a=>({a,m:ps.filter(p=>(a.members||[]).includes(p.id))})).filter(x=>x.m.length>=2),big=groups.sort((a,b)=>b.m.length-a.m.length)[0],outsiders=ps.filter(p=>!big?.m.some(x=>x.id===p.id)),defaultTarget=pick(outsiders.length?outsiders:ps);
  const votes=ps.map(v=>{const options=ps.filter(p=>p.id!==v.id),group=groups.find(x=>x.m.some(p=>p.id===v.id));let target=defaultTarget;if(group&&Math.random()<.76){const shared=options.filter(p=>!group.m.some(x=>x.id===p.id));target=shared.includes(defaultTarget)?defaultTarget:pick(shared.length?shared:options)}else if(Math.random()<.35){const enemies=options.filter(p=>rel(s,v,p)<0);if(enemies.length)target=pick(enemies)}return {voterId:v.id,targetId:target.id}});
  const counts={};votes.forEach(v=>counts[v.targetId]=(counts[v.targetId]||0)+1);
