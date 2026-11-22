@@ -59,6 +59,7 @@ document.addEventListener("change",e=>{
  if(el.dataset.episode!==undefined){state.timeline[+el.dataset.episode][el.dataset.key]=el.value;save();return}
  if(el.dataset.jointSafe!==undefined){state.timeline[+el.dataset.jointSafe].jointSafe=Math.max(0,Number(el.value)||0);save();return}
  if(el.dataset.player!==undefined){const p=state.cast[+el.dataset.player],k=el.dataset.key;p[k]=el.value;if(k==="archetype"){const a=ARCHETYPES.find(x=>x.name===p.archetype)||ARCHETYPES[0];p.class=a.class;p.stats=[...a.stats]}render();return}
+ if(el.dataset.statPlayer!==undefined){const p=state.cast[+el.dataset.statPlayer];p.stats=p.stats||[5,5,5,5,5,5,5];p.stats[+el.dataset.statIndex]=Number(el.value);const out=document.getElementById("stat-value-"+el.dataset.statPlayer+"-"+el.dataset.statIndex);if(out)out.textContent=el.value;save();return}
  if(el.dataset.team!==undefined){const t=state.teams[+el.dataset.team],k=el.dataset.key;t[k]=el.value;if(k==="name"||k==="label")render();else save();return}
  if(el.dataset.teamColour!==undefined){const t=state.teams[+el.dataset.team];t[el.dataset.colourPart]=el.value;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save();render();return}
  if(el.dataset.teamHex!==undefined){const t=state.teams[+el.dataset.teamHex],part=el.dataset.colourPart;if(/^#[0-9a-fA-F]{6}$/.test(el.value)){t[part]=el.value;const c1=t.color1||"#777777",c2=t.color2||"#303030";t.color=t.gradient?`linear-gradient(135deg, ${c1}, ${c2})`:c1;save();render()}return}
@@ -68,6 +69,6 @@ document.addEventListener("change",e=>{
  if(el.dataset.alliance!==undefined){state.alliances[+el.dataset.alliance][el.dataset.key]=el.value;save();return}
  if(el.dataset.strengthAlliance!==undefined){const a=state.alliances[+el.dataset.strengthAlliance];a.strengths=a.strengths||{};a.strengths[el.dataset.playerId]=el.value;save();return}
 });
-document.addEventListener("input",e=>{if(e.target.dataset.rangeSetting){const out=document.getElementById("value-"+e.target.dataset.rangeSetting);if(out)out.textContent=e.target.value}});
+document.addEventListener("input",e=>{const el=e.target;if(el.dataset.rangeSetting){const out=document.getElementById("value-"+el.dataset.rangeSetting);if(out)out.textContent=el.value}if(el.dataset.statPlayer!==undefined){const out=document.getElementById("stat-value-"+el.dataset.statPlayer+"-"+el.dataset.statIndex);if(out)out.textContent=el.value}});
 function init(){ensureData();state.cast.forEach(p=>{if(!p.archetype){p.archetype="The Balanced";p.class="All-rounder";p.stats=[5,5,5,5,5,5,5]}});if(!state.cast.some(p=>p.team))randomizeTeams(state);render()}
 init();
