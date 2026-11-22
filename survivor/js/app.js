@@ -5,6 +5,8 @@ import {renderTimeline} from "./pages/timeline.js";
 import {renderCast} from "./pages/cast.js";
 import {renderTeams} from "./pages/teams.js";
 import {renderRelationships} from "./pages/relationships.js";
+import {renderGame} from "./pages/game.js";
+import {startSeason,advance} from "./systems/game-engine.js";
 import {esc,heading,field,rangeField,displayName,safeColor,relColor} from "./utils.js";
 import {episodeCount as getEpisodeCount,episodePhase as getEpisodePhase} from "./systems/season-generator.js";
 import {randomizeTeams} from "./systems/team-assignment.js";
@@ -14,7 +16,7 @@ let page="setup";
 function render(){
  ensureData();save();setActiveNavigation(page);
  const episodeCount=()=>getEpisodeCount(state),episodePhase=(i)=>getEpisodePhase(state,i);
- const pages={setup:()=>renderSetup({state,heading,field,esc,rangeField}),timeline:()=>renderTimeline({state,heading,esc,twistDefs,episodeCount,episodePhase}),cast:()=>renderCast({state,heading,esc,displayName,ARCHETYPES}),teams:()=>renderTeams({state,heading,esc,displayName,safeColor}),relationships:()=>renderRelationships({state,heading,esc,displayName,RELATIONSHIPS,relColor})};
+ const pages={setup:()=>renderSetup({state,heading,field,esc,rangeField}),timeline:()=>renderTimeline({state,heading,esc,twistDefs,episodeCount,episodePhase}),cast:()=>renderCast({state,heading,esc,displayName,ARCHETYPES}),teams:()=>renderTeams({state,heading,esc,displayName,safeColor}),relationships:()=>renderRelationships({state,heading,esc,displayName,RELATIONSHIPS,relColor}),game:()=>renderGame({state})};
  document.getElementById("page-content").innerHTML=pages[page]();
 }
 function openUrlDialog(target){
@@ -31,6 +33,8 @@ function applyUrl(target,value){
  save();document.querySelector(".url-backdrop")?.remove();render();
 }
 document.addEventListener("click",e=>{
+ const launch=e.target.closest("[data-launch-season]");if(launch){if(state.cast.filter(p=>p.name.trim()).length<2){alert("Add at least two named castaways before launching the season.");return}startSeason(state);page="game";render();return}
+ const gameNext=e.target.closest("[data-game-next]");if(gameNext){advance(state);save();render();return}
  const clearAll=e.target.closest("[data-clear-all]");
  if(clearAll){if(confirm("Clear the entire season setup, cast, teams, timeline, relationships and alliances?")){resetSeason();randomizeTeams(state);page="setup";render()}return}
  if(e.target.closest("[data-url-close]")){document.querySelector(".url-backdrop")?.remove();return}
