@@ -272,3 +272,65 @@ body{background:radial-gradient(ellipse 78% 44% at 50% 0%,rgba(48,112,66,.72) 0%
 .event-option{background:#101811;box-shadow:none}
 .event-option:hover{background:#17231a;box-shadow:none}
 .event-option:has(input:checked){background:#1b3020;box-shadow:none}
+
+
+/* Survivor gameplay pages */
+.game-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:8px 0 22px}
+.game-heading h1{font-size:27px;letter-spacing:-.7px;margin:5px 0 6px}
+.game-heading p{margin:0;color:#89978d;font-size:11px;line-height:1.5}
+.game-live{font-size:8px;letter-spacing:1.2px;color:#9bc9a5;border:1px solid #35543d;background:#102016;padding:7px 9px;border-radius:3px;white-space:nowrap}
+.game-panel{border:1px solid #29372d;background:rgba(10,15,11,.92);border-radius:7px;padding:17px;margin:0 0 13px}
+.game-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+.game-panel-head h2{font-size:14px;margin:0}
+.game-panel-head>span{font-size:8px;letter-spacing:1px;color:#819385}
+.game-roster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.game-player{display:flex;align-items:center;gap:9px;min-width:0;padding:7px;background:#0c140e;border:1px solid #29382e;border-radius:4px;color:#dce5dd;font-size:10px}
+.game-player>span:last-child{overflow-wrap:anywhere}
+.game-player img,.game-avatar-placeholder{width:34px;height:34px;flex:0 0 34px;object-fit:cover;border-radius:4px;background:#17241a}
+.game-avatar-placeholder{display:grid;place-items:center;color:#8fb89a;font-size:14px}
+.game-empty{font-size:10px;color:#819087;margin:8px 0}
+.game-alliance{padding:12px 0;border-top:1px solid #26352a}
+.game-alliance:first-of-type{border-top:0}
+.game-alliance-title{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px}
+.game-alliance-title strong{font-size:11px}
+.game-alliance-title span{font-size:8px;color:#8ea092;letter-spacing:.8px}
+.game-tribe-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.game-tribe-tabs span{padding:7px 10px;border:1px solid #2b3a2f;border-radius:4px;color:#89978d;background:#0b100d;font-size:9px}
+.game-tribe-tabs span.active{background:#1b3020;border-color:#5b8063;color:#d9e9dc}
+.challenge-panel{padding:22px}
+.challenge-panel h2{font-size:23px;margin:10px 0}
+.challenge-panel p{max-width:650px;color:#a4b0a7;font-size:12px;line-height:1.7}
+.challenge-result{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #2b3b30;margin-top:20px;padding-top:15px}
+.challenge-result span{font-size:8px;letter-spacing:1.2px;color:#8ea092}
+.challenge-result strong{font-size:17px;color:#a8d7b1}
+.game-event-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.game-event{padding:12px;background:#0c140e;border:1px solid #29382e;border-radius:4px}
+.game-event>span{font-size:8px;text-transform:uppercase;letter-spacing:1px;color:#8fbd99}
+.game-event h3{font-size:12px;margin:8px 0 5px}
+.game-event p{font-size:10px;line-height:1.55;color:#98a59b;margin:0}
+.game-table{width:100%;border-collapse:collapse;font-size:10px}
+.game-table th{text-align:left;color:#819385;font-size:8px;letter-spacing:1px;font-weight:700;padding:9px;border-bottom:1px solid #354238}
+.game-table td{padding:10px 9px;border-bottom:1px solid #202d24;color:#cbd6cd;line-height:1.5}
+.game-table tr:last-child td{border-bottom:0}
+.game-table td:first-child{white-space:nowrap}
+.game-footer{display:flex;justify-content:flex-end;margin:17px 0 28px}
+.vote-reveal{max-width:760px;margin-left:auto;margin-right:auto}
+.game-vote-stack{display:grid;gap:6px;min-height:54px}
+.revealed-vote{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;background:#0b130d;border:1px solid #2a392e;border-radius:4px}
+.revealed-vote span{font-size:8px;letter-spacing:1px;color:#819385}
+.revealed-vote strong{font-size:12px}
+.vote-tally{border-top:1px solid #2c3a30;margin-top:15px;padding-top:13px;text-align:center;color:#b9c5bb;font-size:11px;line-height:1.8}
+.vote-tally strong{color:#91c49b}
+.game-plan{padding:12px 0;border-top:1px solid #27352b;font-size:10px;color:#aebbb1;line-height:1.7}
+.game-plan:first-of-type{border-top:0}
+.game-plan h3{font-size:12px;color:#e0e9e1;margin:0 0 5px}
+.game-plan p{margin:0 0 7px;color:#98a59b}
+.game-plan b{color:#d4dfd6}
+.game-swing{padding:9px 0;border-bottom:1px solid #26352a;color:#9eaba1;font-size:10px;line-height:1.6}
+.game-swing strong{color:#d9e4db}
+.winner-panel{text-align:center;padding:35px 18px}
+.winner-panel .game-avatar-placeholder,.winner-panel img{width:90px;height:90px;margin:16px auto;border-radius:7px;object-fit:cover}
+.winner-panel h2{font-size:24px;margin:8px}
+.winner-panel p{color:#9eada1;font-size:11px}
+.game-history p{font-size:9px;color:#9eada1;padding:7px 0;border-bottom:1px solid #26352a}
+@media(max-width:650px){.game-heading h1{font-size:22px}.game-roster{grid-template-columns:repeat(2,minmax(0,1fr))}.game-event-list{grid-template-columns:1fr}.game-panel{padding:13px}.game-table{font-size:9px}.game-table th,.game-table td{padding:8px 5px}.game-table td:first-child{white-space:normal}.challenge-result{align-items:flex-start;flex-direction:column}}
