@@ -1,4 +1,4 @@
-export export function renderTeams({state,heading,esc,displayName,safeColor}){
+export function renderTeams({state,heading,esc,displayName,safeColor}){
  const tribes=Number(state.settings.tribes);
  return heading("05 / TEAM CONFIGURATION","Team assignment","Name and style each starting tribe and the merge group. Choose how players are distributed.")+
  `<div class="section"><div class="section-head"><h2>Assignment method</h2></div><div class="button-row"><button class="btn ${state.assignment==="random"?"primary":""}" data-assignment="random">Random assignment</button><button class="btn ${state.assignment==="manual"?"primary":""}" data-assignment="manual">Manual assignment</button><button class="btn" disabled>Thematic assignment · Locked</button></div><p class="hint">${state.assignment==="random"?"Randomly distributes the cast across the starting tribes.": "Choose a starting tribe for each castaway below."}</p></div>
