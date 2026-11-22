@@ -1,5 +1,5 @@
 export const STAT_NAMES=["Physical","Endurance","Strategy","Social","Loyalty","Threat","Intuition"];
-const ARCHETYPES = [
+export const ARCHETYPES = [
  {name:"The Conman",class:"Strategist",description:"A smooth talker who uses charm, misdirection and carefully managed truths to stay ahead.",stats:[4,4,9,8,3,7,7]},
  {name:"The Challenge Beast",class:"Competitor",description:"A physical powerhouse who thrives under pressure and makes their value obvious in challenges.",stats:[10,9,5,5,6,8,5]},
  {name:"The Social Butterfly",class:"Connector",description:"Builds bonds across the tribe and makes people feel heard, included and valued.",stats:[4,5,6,10,8,5,7]},
