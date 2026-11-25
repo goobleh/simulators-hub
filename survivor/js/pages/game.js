@@ -8,7 +8,7 @@ const heading=(g,title,desc)=>'<div class="game-brand">'+(g.logo?'<img src="'+es
 const portrait=p=>'<div class="game-portrait">'+avatar(p)+'<strong>'+esc(name(p))+'</strong><small>'+esc(p?.archetype||"")+'</small></div>';
 const portraitGrid=ps=>'<div class="game-portrait-grid">'+ps.map(portrait).join("")+'</div>';
 const playerRow=p=>'<div class="game-player">'+avatar(p)+'<span>'+esc(name(p))+'</span></div>';
-const next=label=>'<div class="game-footer"><button class="btn subtle" data-game-back>← Back</button><button class="btn primary" data-game-next>'+label+' →</button></div>';
+const next=label=>'<div class="game-footer"><button class="btn primary" data-game-next>'+label+' →</button></div>';
 const tribeStyle=t=>' style="--tribe-color:'+esc(t.color||"#55735a")+';border-color:'+esc(t.color||"#55735a")+'55"';
 const tribeTabs=(g,current)=>'<div class="game-tribe-tabs">'+g.eventTribes.map((x,i)=>{const t=tribe(g,x.tribeId);return '<span class="'+(i===current?'active':'')+'" style="--tribe-color:'+esc(t.color)+'">'+esc(t.name)+'</span>'}).join("")+'</div>';
 const peopleLine=ps=>'<div class="game-people-line">'+ps.map(p=>'<span>'+avatar(p)+esc(name(p))+'</span>').join("")+'</div>';
