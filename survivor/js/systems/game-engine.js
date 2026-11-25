@@ -57,12 +57,27 @@ function createTribal(s){
 }
 function finaleScore(p){return (+p.stats[2]||5)*1.3+(+p.stats[3]||5)*1.4+(+p.stats[6]||5)*.8+(+p.stats[5]||5)*.25}
 function beginFinale(s){
- const g=s.game;g.finalists=g.cast.filter(alive).sort((a,b)=>finaleScore(b)-finaleScore(a));g.jury=g.cast.filter(p=>!alive(p)).slice(-7).reverse();
+ const g=s.game;
+ g.finalists=g.cast.filter(alive).sort((a,b)=>finaleScore(b)-finaleScore(a));
+ g.jury=g.cast.filter(p=>!alive(p)).slice(-7).reverse();
  const prompts=["What was your biggest move, and why should we respect it?","How did you adapt when your plans fell apart?","Who did you betray, and was it worth it?","What was your strongest social connection?","What do you think your biggest weakness was?","How did you make decisions under pressure?","What moment best represents your game?","Why do you deserve to win?"];
- g.questions=g.jury.map(j=>({jurorId:j.id,question:pick(prompts),answers:g.finalists.map(f=>({finalistId:f.id,text:"I tried to stay adaptable, build relationships, and make decisions that moved my game forward. Not every move worked, but I owned those choices and kept working toward the end."}))}));
- g.speeches=g.finalists.map(f=>({finalistId:f.id,text:"I came into this game wanting to prove I could play my own game. I built relationships, made difficult decisions, and adapted when things changed. I know my journey wasn't perfect, but I stayed committed and earned my place here. I hope my game speaks for itself, and I'd be grateful for your vote."})));
- g.juryVotes=g.jury.map(j=>{const scores=g.finalists.map(f=>({id:f.id,score:finaleScore(f)+g.alliances.filter(a=>(a.members||[]).includes(j.id)&&(a.members||[]).includes(f.id)).length*2.5+(s.relationships[[j.id,f.id].sort().join("|")]?({"Best friends":6,"Close allies":4,"Friendly":2,"Distant":-1,"Rivals":-3,"Enemies":-5}[s.relationships[[j.id,f.id].sort().join("|")]]||0):0)+Math.random()*8}));return {jurorId:j.id,targetId:weightedPick(scores).id}}).sort(()=>Math.random()-.5);
- g.voteReveal=0;g.voteCounts={};g.juryVotes.forEach(v=>g.voteCounts[v.targetId]=(g.voteCounts[v.targetId]||0)+1);g.voteCountsRevealed={};g.rankings=[...g.finalists].sort((a,b)=>(g.voteCounts[b.id]||0)-(g.voteCounts[a.id]||0)||finaleScore(b)-finaleScore(a));g.winner=g.rankings[0]?.id;g.stage="finalists";
+ g.questions=g.jury.map(j=>{
+  const answers=g.finalists.map(f=>({finalistId:f.id,text:"I tried to stay adaptable, build relationships, and make decisions that moved my game forward. Not every move worked, but I owned those choices and kept working toward the end."}));
+  return {jurorId:j.id,question:pick(prompts),answers};
+ });
+ g.speeches=g.finalists.map(f=>({finalistId:f.id,text:"I came into this game wanting to prove I could play my own game. I built relationships, made difficult decisions, and adapted when things changed. I know my journey wasn't perfect, but I stayed committed and earned my place here. I hope my game speaks for itself, and I'd be grateful for your vote."}));
+ g.juryVotes=g.jury.map(j=>{
+  const scores=g.finalists.map(f=>{
+   const relation=s.relationships[[j.id,f.id].sort().join("|")];
+   const relScore={"Best friends":6,"Close allies":4,"Friendly":2,"Distant":-1,"Rivals":-3,"Enemies":-5}[relation]||0;
+   const alliance=g.alliances.filter(a=>(a.members||[]).includes(j.id)&&(a.members||[]).includes(f.id)).length*2.5;
+   return {id:f.id,score:finaleScore(f)+alliance+relScore+Math.random()*8};
+  });
+  return {jurorId:j.id,targetId:weightedPick(scores).id};
+ }).sort(()=>Math.random()-.5);
+ g.voteReveal=0;g.voteCounts={};g.juryVotes.forEach(v=>g.voteCounts[v.targetId]=(g.voteCounts[v.targetId]||0)+1);
+ g.voteCountsRevealed={};g.rankings=[...g.finalists].sort((a,b)=>(g.voteCounts[b.id]||0)-(g.voteCounts[a.id]||0)||finaleScore(b)-finaleScore(a));
+ g.winner=g.rankings[0]?.id;g.stage="finalists";
 }
 function finishEpisode(s){const g=s.game,left=g.cast.filter(alive);if(left.length<=(s.settings.finale==="Final 2"?2:3)){beginFinale(s)}else{g.episode++;prepare(s)}}
 export function revealVote(s){if(s.game.tribal.revealed<s.game.tribal.votes.length)s.game.tribal.revealed++}
