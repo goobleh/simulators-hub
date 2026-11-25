@@ -4,7 +4,7 @@ const alive=p=>p?.status==="active";
 const tribe=(g,id)=>g.tribes.find(t=>t.id===id)||{id:"",name:"Tribe",color:"#55735a"};
 const players=(g,id)=>g.cast.filter(p=>alive(p)&&p.team===id);
 const avatar=p=>p?.image?'<img src="'+esc(p.image)+'" alt="">':'<span class="game-avatar-placeholder">✦</span>';
-const heading=(g,title,desc)=>'<div class="game-brand">'+(g.logo?'<img src="'+esc(g.logo)+'" alt="Season logo">':'')+'<span>'+esc(g.seasonTitle||"Survivor")+'</span></div><div class="game-heading game-stage-"+g.stage+""><div><div class="eyebrow">EPISODE '+String(g.episode).padStart(2,"0")+'</div><h1>'+title+'</h1><p>'+desc+'</p></div><span class="game-live">IN PROGRESS</span></div>';
+const heading=(g,title,desc)=>'<div class="game-brand">'+(g.logo?'<img src="'+esc(g.logo)+'" alt="Season logo">':'')+'<span>'+esc(g.seasonTitle||"Survivor")+'</span></div><div class="game-heading game-stage-' + g.stage + '"><div><div class="eyebrow">EPISODE '+String(g.episode).padStart(2,"0")+'</div><h1>'+title+'</h1><p>'+desc+'</p></div><span class="game-live">IN PROGRESS</span></div>';
 const portrait=p=>'<div class="game-portrait">'+avatar(p)+'<strong>'+esc(name(p))+'</strong><small>'+esc(p?.archetype||"")+'</small></div>';
 const portraitGrid=ps=>'<div class="game-portrait-grid">'+ps.map(portrait).join("")+'</div>';
 const playerRow=p=>'<div class="game-player">'+avatar(p)+'<span>'+esc(name(p))+'</span></div>';
