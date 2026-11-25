@@ -76,8 +76,8 @@ function beginFinale(s){
   return {jurorId:j.id,targetId:weightedPick(scores).id};
  }).sort(()=>Math.random()-.5);
  g.voteReveal=0;g.voteCounts={};g.juryVotes.forEach(v=>g.voteCounts[v.targetId]=(g.voteCounts[v.targetId]||0)+1);
- g.voteCountsRevealed={};g.rankings=[...g.finalists].sort((a,b)=>(g.voteCounts[b.id]||0)-(g.voteCounts[a.id]||0)||finaleScore(b)-finaleScore(a));
- g.winner=g.rankings[0]?.id;g.stage="finalists";
+ g.voteCountsRevealed={};const finalistRanks=[...g.finalists].sort((a,b)=>(g.voteCounts[b.id]||0)-(g.voteCounts[a.id]||0)||finaleScore(b)-finaleScore(a));const eliminatedOrder=g.history.filter(h=>h.type==="Elimination").map(h=>h.playerId).reverse();const eliminatedRanks=eliminatedOrder.map(id=>g.cast.find(p=>p.id===id)).filter(p=>p&&!finalistRanks.includes(p));const remaining=g.cast.filter(p=>!finalistRanks.includes(p)&&!eliminatedRanks.includes(p));g.rankings=[...finalistRanks,...eliminatedRanks,...remaining];
+ g.winner=finalistRanks[0]?.id;g.stage="finalists";
 }
 function finishEpisode(s){const g=s.game,left=g.cast.filter(alive);if(left.length<=(s.settings.finale==="Final 2"?2:3)){beginFinale(s)}else{g.episode++;prepare(s)}}
 export function revealVote(s){if(s.game.tribal.revealed<s.game.tribal.votes.length)s.game.tribal.revealed++}
