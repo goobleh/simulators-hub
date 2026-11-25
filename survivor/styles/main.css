@@ -417,3 +417,12 @@ body,.topbar{background:#080808!important;background-image:none!important;backdr
 .team-preview-roster{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(100px,1fr))!important;gap:6px!important;margin-top:10px!important}.team-preview-roster .team-player{display:flex!important;align-items:center!important;gap:6px!important;font-size:10px!important;min-width:0}.team-preview-roster .team-player img,.team-preview-roster .team-player-placeholder{width:28px!important;height:28px!important;object-fit:cover!important;flex:0 0 28px!important}
 .gradient-toggle{font-size:10px!important;padding:3px 6px!important;gap:4px!important}.setup-logo-field .logo-preview{height:170px!important;min-height:170px!important;padding:0!important;background:#111!important;background-image:none!important;overflow:visible!important;display:flex!important;align-items:center!important;justify-content:center!important}.setup-logo-field .logo-preview img{position:static!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important}.logo-preview{overflow:visible!important}.logo-preview img{object-fit:contain!important;object-position:center!important}
 @media(max-width:600px){.game-stage-contestants .game-heading h1{font-size:29px!important}.game-vote-record{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important}.game-vote-person{flex-direction:column!important}}
+
+/* Avatar crops: square frame, fill rather than letterbox */
+.game-portrait img,.game-vote-person img,.vote-target img,.confessional-person img,.game-plan-feature img,.game-people-line img,.team-player img,.final-ranking img,.winner-panel>img{object-fit:cover!important;object-position:center!important}
+.game-portrait-grid{justify-content:center!important}
+.game-portrait{border:none!important}
+.game-footer button:first-child{margin-right:auto!important}
+.game-footer button:last-child{margin-left:auto!important}
+.game-stage-contestants .game-portrait-grid{justify-content:center!important}
+.game-stage-contestants .game-portrait{border:none!important}
