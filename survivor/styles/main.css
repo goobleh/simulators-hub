@@ -426,3 +426,21 @@ body,.topbar{background:#080808!important;background-image:none!important;backdr
 .game-footer button:last-child{margin-left:auto!important}
 .game-stage-contestants .game-portrait-grid{justify-content:center!important}
 .game-stage-contestants .game-portrait{border:none!important}
+
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.team-card{background:transparent!important;border:0!important;padding:0!important;text-align:center!important}
+.team-contrast-test{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:88px;margin-bottom:10px}
+.team-identity-row{display:flex;flex-direction:column;align-items:center;gap:9px}
+.team-colour-pair{display:flex;justify-content:center}
+.team-name-field{width:min(100%,260px)}
+.team-card .field,.team-card .team-colour-options{justify-items:center;text-align:center}
+.team-preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.team-preview-item{background:transparent!important;border:0!important;padding:0!important;text-align:center!important}
+.team-preview-item>strong,.team-preview-item>span{display:block;text-align:center}
+.team-preview-roster{justify-content:center!important;grid-template-columns:repeat(auto-fit,minmax(95px,120px))!important}
+.team-preview-item .team-swatch{margin:0 0 12px!important}
+.game-tribe-panel{border-left-color:color-mix(in srgb,var(--tribe-color,#55735a) 20%,#252525)!important}
+.game-tribe-panel .game-panel-head h2{color:#c5d0c7!important}
+.game-tribe-tabs span.active{background:#151915!important;border-color:#343a35!important;color:#d5ddd6!important}
+.challenge-stats i{background:#151815!important;border-color:#303630!important;color:#c4cec6!important}
+.challenge-result strong,.winner-votes,.final-answer strong,.final-ranking .placement,.final-ranking>b{color:#c4cec6!important}
